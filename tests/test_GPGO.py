@@ -21,7 +21,8 @@ def test_GPGO():
     gpgo = GPGO(gp, acq, f, params)
     gpgo.run(max_iter=10)
     res = gpgo.getResult()[0]
-    assert .6 < res['x'] < .8
+    np.testing.assert_allclose(res['x'], 0.7, atol=0.1)
+    # assert .6 < res['x'] < .8
 
 
 def test_GPGO_mcmc():
@@ -33,7 +34,8 @@ def test_GPGO_mcmc():
     gpgo = GPGO(gp, acq, f, params)
     gpgo.run(max_iter=10)
     res = gpgo.getResult()[0]
-    assert .6 < res['x'] < .8
+    np.testing.assert_allclose(res['x'], 0.7, atol=0.1)
+    # assert .6 < res['x'] < .8
 
 
 def test_GPGO_sk():
@@ -44,7 +46,8 @@ def test_GPGO_sk():
     gpgo = GPGO(rf, acq, f, params)
     gpgo.run(max_iter=10)
     res = gpgo.getResult()[0]
-    assert .7 < res['x'] < .8
+    np.testing.assert_allclose(res['x'], 0.75, atol=0.05)
+    # assert .7 < res['x'] < .8
 
 
 if __name__ == '__main__':
