@@ -40,7 +40,7 @@ def test_psd_covfunc():
         for i in range(10):
             generated_hyperparameters = generate_hyperparameters(**hyperparameters_interval[name])
             cov = covariance_classes[name](**generated_hyperparameters)
-            for j in range(100):
+            for j in range(10):
                 X = np.random.randn(10, 2)
                 eigvals = np.linalg.eigvals(cov.K(X,X))
                 assert (eigvals > 0).all()

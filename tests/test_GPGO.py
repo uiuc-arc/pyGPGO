@@ -19,7 +19,7 @@ def test_GPGO():
     acq = Acquisition(mode='ExpectedImprovement')
     params = {'x': ('cont', (0, 1))}
     gpgo = GPGO(gp, acq, f, params)
-    gpgo.run(max_iter=10)
+    gpgo.run(max_iter=1)
     res = gpgo.getResult()[0]
     np.testing.assert_allclose(res['x'], 0.7, atol=0.1)
     # assert .6 < res['x'] < .8
@@ -28,7 +28,7 @@ def test_GPGO():
 def test_GPGO_mcmc():
     np.random.seed(20)
     sexp = squaredExponential()
-    gp = GaussianProcessMCMC(sexp, step=pm.Slice, niter=100)
+    gp = GaussianProcessMCMC(sexp, step=pm.Slice, niter=1)
     acq = Acquisition(mode='IntegratedExpectedImprovement')
     params = {'x': ('cont', (0, 1))}
     gpgo = GPGO(gp, acq, f, params)
@@ -44,7 +44,7 @@ def test_GPGO_sk():
     acq = Acquisition(mode='ExpectedImprovement')
     params = {'x': ('cont', (0, 1))}
     gpgo = GPGO(rf, acq, f, params)
-    gpgo.run(max_iter=10)
+    gpgo.run(max_iter=2)
     res = gpgo.getResult()[0]
     np.testing.assert_allclose(res['x'], 0.75, atol=0.05)
     # assert .7 < res['x'] < .8
