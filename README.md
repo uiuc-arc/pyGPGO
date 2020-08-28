@@ -4,6 +4,7 @@
 
 ![sine](http://i.giphy.com/l3q2s3MQ4bPb5RogU.gif)
 
+
 pyGPGO is a simple Python (>3.5) package for Bayesian Optimization.
 
 ### Installation
