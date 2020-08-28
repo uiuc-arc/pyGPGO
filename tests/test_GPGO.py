@@ -33,7 +33,7 @@ def test_GPGO_mcmc():
     gpgo = GPGO(gp, acq, f, params)
     gpgo.run(max_iter=10)
     res = gpgo.getResult()[0]
-    assert .7 < res['x'] < .8
+    np.testing.assert_allclose(res['x'], 0.75, atol=0.05)
 
 
 def test_GPGO_sk():
