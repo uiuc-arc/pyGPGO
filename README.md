@@ -8,6 +8,7 @@
 
 ![sine](http://i.giphy.com/l3q2s3MQ4bPb5RogU.gif)
 
+
 pyGPGO is a simple and modular Python (>3.5) package for bayesian optimization. 
 
 Bayesian optimization is a framework that can be used in situations where:
