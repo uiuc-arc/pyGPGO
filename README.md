@@ -10,6 +10,7 @@
 
 pyGPGO is a simple and modular Python (>3.5) package for bayesian optimization. 
 
+
 Bayesian optimization is a framework that can be used in situations where:
 
 * Your objective function may not have a closed-form. (e.g. the result of a simulation)
