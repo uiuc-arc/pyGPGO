@@ -13,7 +13,8 @@ def test_GP():
 
     params = gp.getcovparams()
 
-    assert 0.36 < params['l'] < 0.37
+    np.testing.assert_allclose(params['l'], 0.40, rtol=0, atol=0.01)
+    #assert 0.36 < params['l'] < 0.37
     assert 0.39 < params['sigmaf'] < 0.41
     assert 0.29 < params['sigman'] < 0.3
 
