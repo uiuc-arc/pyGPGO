@@ -66,7 +66,8 @@ def test_tSP_opt_nograd():
     tsp.fit(X, y)
     params = tsp.getcovparams()
 
-    assert 0.3 < params['l'] < 0.4
+    np.testing.assert_allclose(params['l'], 0.35, rtol=0, atol=0.05)
+    #assert 0.3 < params['l'] < 0.4
     assert 0.3 < params['sigmaf'] < 0.5
     assert 0.2 < params['sigman'] < 0.4
 
