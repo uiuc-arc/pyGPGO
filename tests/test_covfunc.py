@@ -43,7 +43,8 @@ def test_psd_covfunc():
             for j in range(100):
                 X = np.random.randn(10, 2)
                 eigvals = np.linalg.eigvals(cov.K(X,X))
-                assert (eigvals > 0).all()
+                np.testing.assert_array_less(-eigvals, 0)
+                #assert (eigvals > 0).all()
 
 
 def test_sim():
