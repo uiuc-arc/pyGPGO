@@ -27,11 +27,11 @@ def test_GPGO():
 def test_GPGO_mcmc():
     np.random.seed(20)
     sexp = squaredExponential()
-    gp = GaussianProcessMCMC(sexp, step=pm.Slice, niter=100)
+    gp = GaussianProcessMCMC(sexp, step=pm.Slice, niter=24)
     acq = Acquisition(mode='IntegratedExpectedImprovement')
     params = {'x': ('cont', (0, 1))}
     gpgo = GPGO(gp, acq, f, params)
-    gpgo.run(max_iter=10)
+    gpgo.run(max_iter=2)
     res = gpgo.getResult()[0]
     assert .7 < res['x'] < .8
 
